@@ -1,0 +1,17 @@
+# Data and Privacy
+data/
+*.pdf
+*.csv
+*.md
+*.env
+
+# Python
+__pycache__/
+*.py[cod]
+venv/
+.venv/
+.env
+
+# OS files
+.DS_Store
+Thumbs.db
