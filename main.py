@@ -11,8 +11,12 @@ CSV_PATH = "data/processed/statement_cleaned.csv"
 def main():
     if run_marker(PDF_PATH,MD_FOLDER):
         # 1  searching for .md file
-        md_file=[f for f in os.listdir(MD_FOLDER) if f.endswith(".md")]
-        full_md_path=os.path.join(MD_FOLDER,md_file)
+        folder_name = os.listdir(MD_FOLDER)[0]
+        statement_folder = os.path.join(MD_FOLDER, folder_name)
+
+        md_file = [f for f in os.listdir(statement_folder) if f.endswith(".md")]
+
+        full_md_path = os.path.join(statement_folder, md_file[0])
 
         #  2  extracting csv from markdown
         if extract_csv_from_markdown(full_md_path,CSV_PATH):

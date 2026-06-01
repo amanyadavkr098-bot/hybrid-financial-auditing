@@ -1,6 +1,7 @@
 import subprocess
 import os
 #subrprocess to run it in command line
+
 def run_marker(pdf_path,output_path):
     """
     Run the marker tool on the given PDF file and save the output to the specified path."""
@@ -10,10 +11,13 @@ def run_marker(pdf_path,output_path):
         command=[
             "marker_single",
             pdf_path,
+            "--output_dir",
             output_path,
-            "--batch_multiplier",2
+
         ]
         # equivalent to running the command in the terminal
+        print(type(pdf_path))
+        print(type(output_path))
 
         subprocess.run(command, check=True)
         #check if the command was successful, if not it will raise an error
@@ -21,6 +25,9 @@ def run_marker(pdf_path,output_path):
         return True
     except subprocess.CalledProcessError as e:
         print(f"Error running marker: {e}")
+        return False
+    except Exception as e:
+        print(f"Unexpected error: {e}")
         return False
 if __name__ == "__main__":
     #used when directly running the script, it will execute the code inside this block
