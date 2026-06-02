@@ -30,6 +30,7 @@ def run_marker(pdf_path,output_path):
         print(f"Unexpected error: {e}")
         return False
 if __name__ == "__main__":
+    
     #used when directly running the script, it will execute the code inside this block
     input_pdf = "data/raw/statement.pdf" 
     output_folder = "data/interim"
