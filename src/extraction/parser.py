@@ -70,6 +70,16 @@ def extract_transactions(md_text, output_csv):
 
 # This allows main.py to call this function
 if __name__ == "__main__":
-    input_md = "data/interim/statement.md"
-    output_csv = "data/processed/transactions.csv"
-    extract_transactions(input_md, output_csv)
+    md_file_path = "data/interim/statement__1/statement.md"
+    output_csv_path = "data/processed/statement_cleaned_v2.csv"
+    with open(
+        md_file_path,
+        "r",
+        encoding="utf-8"
+    ) as f:
+        md_text = f.read()
+
+    extract_transactions(
+        md_text,
+        output_csv_path
+    )
