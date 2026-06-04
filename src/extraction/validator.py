@@ -7,7 +7,7 @@ def validate_statement(csv_path):
     no transactions were missed and amounts are correct.
     """
     if not os.path.exists(csv_path):
-        print(f"❌ Validation Error: CSV file not found at {csv_path}")
+        print(f"Validation Error: CSV file not found at {csv_path}")
         return False
 
     try:
@@ -15,7 +15,7 @@ def validate_statement(csv_path):
         df = pd.read_csv(csv_path)
         
         if df.empty:
-            print("❌ Validation Error: The extracted CSV is empty.")
+            print(" Validation Error: The extracted CSV is empty.")
             return False
 
         # 2. Clean the Amount column 
@@ -33,7 +33,7 @@ def validate_statement(csv_path):
 
         # 4. Generate the Audit Report
         print("\n" + "="*40)
-        print("🛡️  FINANCIAL AUDIT REPORT")
+        print(" FINANCIAL AUDIT REPORT")
         print("="*40)
         print(f"Total Transactions Found: {len(df)}")
         print(f"Total Money Out (DEBITS):  ₹{debits:,.2f}")
@@ -43,7 +43,7 @@ def validate_statement(csv_path):
         print("="*40)
 
         # 5. User Manual Cross-Check
-        print("\n👉 ACTION REQUIRED: Check your PDF statement totals.")
+        print("\n ACTION REQUIRED: Check your PDF statement totals.")
         print("Does the 'Total Debits' and 'Total Credits' match your PDF?")
         
         # In a fully automated system, you could extract the total 
@@ -53,7 +53,7 @@ def validate_statement(csv_path):
         return True
 
     except Exception as e:
-        print(f"❌ Critical Validation Error: {e}")
+        print(f" Critical Validation Error: {e}")
         return False
 
 if __name__ == "__main__":
